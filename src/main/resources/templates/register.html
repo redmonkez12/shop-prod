@@ -1,0 +1,45 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <title layout:fragment="title">Register</title>
+</head>
+<body>
+<div class="content" layout:fragment="content">
+    <h1>Register</h1>
+
+    <form method="post" th:action="@{/register}" th:object="${user}">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Your email" th:field="*{email}" name="email">
+
+            <p th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Your password" th:field="*{password}" name="password">
+
+            <p th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Your name" th:field="*{firstName}" name="firstName">
+
+            <p th:if="${#fields.hasErrors('firstName')}" class="text-danger" th:errors="*{firstName}"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Your surname" th:field="*{lastName}" name="lastName">
+
+            <p th:if="${#fields.hasErrors('lastName')}" class="text-danger" th:errors="*{lastName}"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <a th:href="@{/login}" class="btn btn-link">Already have an account?</a>
+    </form>
+</div>
+</body>
+</html>
