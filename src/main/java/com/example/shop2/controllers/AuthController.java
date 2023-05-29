@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 public class AuthController {
@@ -25,11 +26,11 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public String loginUserPage(Model model, @RequestParam("error") String error) {
+    public String loginUserPage(Model model, @RequestParam("error") Optional<String> error) {
         var user = new UserEntity();
         model.addAttribute("user", user);
 
-        if (Objects.equals(error, "true")) {
+        if (error.isPresent()) {
             model.addAttribute("message", "Invalid password or username");
         }
 
