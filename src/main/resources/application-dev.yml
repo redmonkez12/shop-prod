@@ -6,9 +6,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://db.qvvhspxayasyyfgicqya.supabase.co:5432/postgres?user=postgres&password=q288iWm6KLpZZW6V
+    url: jdbc:postgresql://localhost:5432/shop
     username: postgres
-    password: q288iWm6KLpZZW6V
+    password: 123456
   jpa:
     properties:
       hibernate:
