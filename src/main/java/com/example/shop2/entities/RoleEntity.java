@@ -23,9 +23,6 @@ public class RoleEntity {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<UserEntity> users = new HashSet<>();
-
     public RoleEntity(String name) {
         this.name = name;
     }

@@ -3,7 +3,6 @@ server:
   error:
     path: /error
 
-
 spring:
   datasource:
     url: jdbc:postgresql://db.qvvhspxayasyyfgicqya.supabase.co:5432/postgres

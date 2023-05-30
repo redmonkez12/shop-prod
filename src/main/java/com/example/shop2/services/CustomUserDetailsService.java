@@ -2,6 +2,7 @@ package com.example.shop2.services;
 
 import com.example.shop2.entities.RoleEntity;
 import com.example.shop2.entities.UserEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity user = userService.findUserByEmail(email);
         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
