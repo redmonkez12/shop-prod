@@ -44,7 +44,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/register", "/css/**", "/js/**", "/access-denied")
                         .permitAll()
-                        .requestMatchers("/dashboard")
+                        .requestMatchers("/dashboard", "/todos")
                         .hasAnyAuthority("USER", "ADMIN", "SUPER_ADMIN")
                 ).formLogin(form -> form
                         .loginPage("/login")
